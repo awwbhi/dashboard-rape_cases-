@@ -296,6 +296,7 @@ fig10.update_layout(plot_bgcolor = 'rgba(0,0,0,0)',
 
 # define the app
 app = Dash()
+server = app.server
 app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 app.layout = dbc.Container([ 
 #Header

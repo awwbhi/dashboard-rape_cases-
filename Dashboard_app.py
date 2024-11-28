@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import dash_bootstrap_components as dbc
 import json
-import plotly.graph_objects as go
+import os
 
 
 df = pd.read_csv('20_Victims_of_rape.csv')
@@ -43,7 +43,8 @@ fig01.update_traces(line_color = "#1f77b4") # graph line color
 #chloropeth map
 df2=df.groupby(['Area_Name'])[['Victims_of_Rape_Total']].sum().reset_index()
 
-india_states = json.load(open("F:\Abhijit\Documents\SUBBU\choropleth-python-tutorial-cf325ac8f42602746c1b8c399178c3b445649df4\choropleth-python-tutorial-cf325ac8f42602746c1b8c399178c3b445649df4\states_india.geojson", "r"))
+geojson_path = os.path.join(os.path.dirname(__file__), "states_india.geojson")
+india_states = json.load(open(geojson_path, "r"))
 
 fig02 = px.choropleth(
     df2,

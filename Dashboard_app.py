@@ -297,7 +297,6 @@ fig10.update_layout(plot_bgcolor = 'rgba(0,0,0,0)',
 
 # define the app
 app = Dash()
-server = app.server
 app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 app.layout = dbc.Container([ 
 #Header
@@ -576,6 +575,11 @@ def update_pie_chart(selected_year):
     legend = dict(font = dict(size=10))
     )
     return fig5
+
+# Get the port from the environment variable
+port = int(os.environ.get("PORT", 5000))
+
+server = app.server
 
 if __name__ == '__main__':
   app.run_server(host="0.0.0.0", port=port)

@@ -577,5 +577,7 @@ def update_pie_chart(selected_year):
     return fig5
 
 if __name__ == '__main__':
-    app.run(debug=True)
+  app.run_server(host="0.0.0.0", port=port
+
+  
 

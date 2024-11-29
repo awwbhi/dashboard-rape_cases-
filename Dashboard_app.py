@@ -570,6 +570,11 @@ def update_pie_chart(selected_year):
     )
     return fig5
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# Get the port from the environment variable
+port = int(os.environ.get("PORT", 5000))
 
+# Expose the Flask server for Gunicorn
+server = app.server
+
+if __name__ == '__main__':
+    app.run_server(host="0.0.0.0", port=port)
